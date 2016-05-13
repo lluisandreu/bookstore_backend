@@ -15,6 +15,7 @@
 			<table class="table">
 				<thead>
 					<tr>
+						<th></th>
 						<th>Book title</th>
 						<th>Author</th>
 						<th>ISBN</th>
@@ -26,12 +27,15 @@
 				<tbody>
 				<?php foreach ($books as $book): ?>
 					<tr>
+						<td><img src="/uploads/thumbs/<?php print $book->cover; ?>" alt=""></td>
 						<td><?php print $book->title; ?></td>
 						<td><?php print $book->author; ?></td>
 						<td><?php print $book->ISBN; ?></td>
 						<td><?php print $book->price; ?>€</td>
 						<td><?php print date($book->created); ?></td>
-						<td><a href="#">View book</a></td>
+						<td><a href="<?php print site_url('book/edit/' . $book->id); ?>">Edit</a>
+						<a href="<?php print site_url('book/remove/' . $book->id); ?>" class="danger">Remove</a>
+						</td>
 					</tr>
 				<?php endforeach; ?>
 				</tbody>

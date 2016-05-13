@@ -53,3 +53,5 @@ $route['default_controller'] = 'book';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['book/add'] = 'book/book_add';
+$route['book/edit/(:num)'] = 'book/edit_book/$1';
+$route['book/remove/(:num)'] = 'book/remove_book/$1';

@@ -1,5 +1,5 @@
 <?php echo validation_errors(); ?>
-<?php echo form_open('book/add'); ?>
+<?php echo form_open_multipart('book/add'); ?>
 <?php $form_class = array('class' => 'form-control'); ?>
 <?php $button_attr = array('class' => 'btn btn-primary', 'type' => 'submit', 'content' => 'Save'); ?>
 <main>
