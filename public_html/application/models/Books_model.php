@@ -41,9 +41,23 @@ class Books_model extends CI_Model {
 			'review' => array(
 				'type' => 'LONGTEXT'
 			),
+			'created' => array(
+				'type' => 'TIMESTAMP',
+			),
 		);
 		$this->dbforge->add_key('id', TRUE);
 		$this->dbforge->add_field($fields);
 		$this->dbforge->create_table('books', TRUE);
+	}
+
+	public function save_book($book) {
+		$this->db->insert('books', $book);
+	}
+	public function get_all_books() {
+		if ($this->db->table_exists('books')) {
+			$this->db->order_by('created', 'DESC');
+			$query = $this->db->get('books');
+			return $query->result();
+		}
 	}
 }
