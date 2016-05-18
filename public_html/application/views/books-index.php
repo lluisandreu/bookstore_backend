@@ -27,7 +27,7 @@
 				<tbody>
 				<?php foreach ($books as $book): ?>
 					<tr>
-						<td><img src="/uploads/thumbs/<?php print $book->cover; ?>" alt=""></td>
+						<td><img src="<?php print $book->cover['thumb']; ?>" alt=""></td>
 						<td><?php print $book->title; ?></td>
 						<td><?php print $book->author; ?></td>
 						<td><?php print $book->ISBN; ?></td>

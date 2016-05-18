@@ -141,6 +141,29 @@ class Book extends CI_Controller {
 
 		$data['books'] = $this->books_model->get_all_books();
 		redirect('/', 'auto');
-		
+	}
+
+	public function rest_all() {
+		$this->load->model('books_model');
+		$results = $this->books_model->get_all_books();
+		if($results && $results > 0) {
+			$this->output
+		        ->set_content_type('application/json')
+		        ->set_output(json_encode($results));
+	    } else {
+	    	$this->output = "Database is empty";
+	    }	
+	}
+
+	public function rest_book($id) {
+		$this->load->model('books_model');
+		$results = $this->books_model->load_book($id);
+		if($results && $results > 0) {
+			$this->output
+		        ->set_content_type('application/json')
+		        ->set_output(json_encode($results));
+	    } else {
+	    	$this->output = "Database is empty";
+	    }	
 	}
 }

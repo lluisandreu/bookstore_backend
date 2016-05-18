@@ -60,10 +60,15 @@ class Books_model extends CI_Model {
 		$this->db->delete('books', array('id' => $book_id));
 	}
 	public function get_all_books() {
+		$this->load->model('books_model');
 		if ($this->db->table_exists('books')) {
 			$this->db->order_by('created', 'DESC');
 			$query = $this->db->get('books');
-			return $query->result();
+			$results = $query->result();
+			foreach ($results as $result) {
+				$result->cover = $this->books_model->img_styles($result->cover);
+			}
+			return $results;
 		}
 	}
 	public function load_book($id) {
@@ -83,5 +88,13 @@ class Books_model extends CI_Model {
 
 		$this->image_lib->initialize($config);
 		$this->image_lib->resize();
+	}
+	public function img_styles($image_name) {
+		$this->load->helper('url');
+		$styles = array();
+		$base = base_url();
+		$styles['thumb'] = $base . 'uploads/thumbs/' . $image_name;
+		$styles['original'] = $base . 'uploads/' . $image_name;
+		return $styles;
 	}
 }

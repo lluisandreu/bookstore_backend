@@ -1,6 +1,7 @@
 <?php echo validation_errors(); ?>
 <?php echo form_open_multipart('/book/edit/' . $book->id); ?>
 <?php $form_class = array('class' => 'form-control'); ?>
+<?php $textarea_class = array('class' => 'form-control', 'id' => 'ckeditor-field'); ?>
 <?php $button_attr = array('class' => 'btn btn-primary', 'type' => 'submit', 'content' => 'Save'); ?>
 <main>
 <div class="well col-md-6">
@@ -42,9 +43,10 @@
 		</div>
 		<div class="form-group">
 			<label>Review</label>
-			<?php echo form_textarea('review', $book->review, $form_class); ?>
+			<?php echo form_textarea('review', $book->review, $textarea_class); ?>
 		</div>
 		<?php echo form_button($button_attr); ?>
+		<a href="<?php print site_url('./'); ?>" class="btn btn-danger">Cancel</a>
 	</form>
 </div>
 </main>
