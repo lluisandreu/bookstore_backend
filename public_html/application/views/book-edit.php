@@ -4,7 +4,7 @@
 <?php $textarea_class = array('class' => 'form-control', 'id' => 'ckeditor-field'); ?>
 <?php $button_attr = array('class' => 'btn btn-primary', 'type' => 'submit', 'content' => 'Save'); ?>
 <main>
-<div class="well col-md-6">
+<div class="well col-md-8">
 	<?php if(isset($book)): ?>
 	<h2>Edit <em><?php print $book->title; ?></em></h2>
 	<?php endif; ?>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>My Books Backend Database</title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url("assets/bootstrap/css/bootstrap.min.css"); ?>" rel="stylesheet">
@@ -20,5 +20,15 @@
   <body>
   <div class="container">
     <header>
-      <h1>Welcome to the Book Store Backend</h1>
+      <div class="col-md-8">
+        <div class="row">
+          <h1>MyBooks Store Backend</h1>
+          <h3>A CodeIgniter CMS to create, edit and view your books</h3>
+          <ul class="nav nav-tabs">
+            <li role="presentation"><a href="<?php print site_url('./'); ?>">Home</a></li>
+            <li role="presentation"><a href="<?php print site_url('book/add'); ?>">+ Add book</a></li>
+            <li role="presentation"><a href="<?php print site_url('book/rest/all'); ?>">Rest result</a></li>
+          </ul>
+        </div>
+      </div>
     </header>

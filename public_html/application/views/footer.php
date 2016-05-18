@@ -5,7 +5,9 @@
     <script src="<?php echo base_url("assets/ckeditor/ckeditor.js"); ?>"></script>
     <script src="<?php echo base_url("assets/bootstrap/js/bootstrap.min.js"); ?>"></script>
     <script>
-    	CKEDITOR.replace('ckeditor-field');
+    	if(document.getElementById('ckeditor-field')) {
+    		CKEDITOR.replace('ckeditor-field');
+    	}
     </script>
     </div>
   </body>
