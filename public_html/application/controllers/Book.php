@@ -147,6 +147,8 @@ class Book extends CI_Controller {
 		$this->load->model('books_model');
 		$results = $this->books_model->get_all_books();
 		if($results && $results > 0) {
+			// "FIX: No 'Access-Control-Allow-Origin' header is present on the requested resource. in Angular"
+			header('Access-Control-Allow-Origin: *');
 			$this->output
 		        ->set_content_type('application/json')
 		        ->set_output(json_encode($results));
@@ -159,6 +161,8 @@ class Book extends CI_Controller {
 		$this->load->model('books_model');
 		$results = $this->books_model->load_book($id);
 		if($results && $results > 0) {
+			// "FIX: No 'Access-Control-Allow-Origin' header is present on the requested resource. in Angular"
+			header('Access-Control-Allow-Origin: *');
 			$this->output
 		        ->set_content_type('application/json')
 		        ->set_output(json_encode($results));
