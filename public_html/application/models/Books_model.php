@@ -72,8 +72,13 @@ class Books_model extends CI_Model {
 		}
 	}
 	public function load_book($id) {
+		$this->load->model('books_model');
 		$query = $this->db->get_where('books', array('id' => $id));
-		return $query->result();
+		$results = $query->result();
+		foreach ($results as $result) {
+			$result->cover = $this->books_model->img_styles($result->cover);
+		}
+		return $results;
 	}
 	public function img_create_thumb($image_name) {
 		$this->load->library('image_lib');
